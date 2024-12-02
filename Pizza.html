@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Calculadora de Pizza Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .ingredientes-lista {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Pizza Developer</h1>
+        <form id="pizzaForm">
+            <div class="form-group">
+                <label>Tamaño de la pizza:</label>
+                <select id="tamano" required>
+                    <option value="PEQUENA">Pequeña (10cm)</option>
+                    <option value="MEDIANA">Mediana (14cm)</option>
+                    <option value="GRANDE">Grande (16cm)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ingredientes extras:</label>
+                <div class="ingredientes-lista">
+                    <div>
+                        <input type="checkbox" id="champinones" value="champinones">
+                        <label for="champinones">Champiñones</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="jamon" value="jamon">
+                        <label for="jamon">Jamón</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="aceitunas" value="aceitunas">
+                        <label for="aceitunas">Aceitunas</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="anchoas" value="anchoas">
+                        <label for="anchoas">Anchoas</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="salchichon" value="salchichon">
+                        <label for="salchichon">Salchichón</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="costoManoObra">Costo de mano de obra ($):</label>
+                <input type="number" id="costoManoObra" required min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="costoBaseExtra">Costo base por ingrediente extra ($):</label>
+                <input type="number" id="costoBaseExtra" required min="0" step="0.01">
+            </div>
+
+            <button type="submit">Calcular Costo</button>
+        </form>
+
+        <div id="resultado" class="resultado" style="display: none;">
+            <h3>Resumen del pedido:</h3>
+            <p id="resumenPedido"></p>
+            <p id="costoTotal"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    </body>
+</html>
